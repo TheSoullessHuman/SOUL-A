@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public Transform cam;
 
-    public float turnSmoothTime= 0.1f;
+    public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
     private bool groundedPlayer = false;
@@ -18,9 +18,9 @@ public class PlayerController : MonoBehaviour
     private float gravityValue = -9.81f;
     private Vector3 playerVelocity;
     private Rigidbody MyRb;
-    
-    
-   
+
+
+
 
     void Start()
     {
@@ -34,14 +34,14 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if(direction.magnitude >= 0.1f)
+        if (direction.magnitude >= 0.1f)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg+cam.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized*speed*Time.deltaTime);
+            controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
         /*void OnCollisionEnter(Collision collision)
         {
@@ -51,7 +51,6 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("colisionando");
                 groundedPlayer = true;
             }
-
         }
         void OnCollisionExit(Collision collision)
         {
@@ -69,7 +68,7 @@ public class PlayerController : MonoBehaviour
              playerVelocity.y = 0f;
          }*/
         Vector3 floor = transform.TransformDirection(Vector3.down);
-        if(Physics.Raycast(transform.position, floor, 1.15f))
+        if (Physics.Raycast(transform.position, floor, 1.15f))
         {
             groundedPlayer = true;
             print("contacto con el suelo");
@@ -83,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.Space)&& groundedPlayer==true)
+        if (Input.GetKeyDown(KeyCode.Space) && groundedPlayer == true)
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             Debug.Log("Saltando");
@@ -96,7 +95,7 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-       
+
 
         //TocaElPiso = Physics2D.OverlapCircle(Cheker.position, RadioDeCheker, Piso);
         //PARA SALTAR
@@ -107,5 +106,5 @@ public class PlayerController : MonoBehaviour
              }*/
     }
 
-   
+
 }
