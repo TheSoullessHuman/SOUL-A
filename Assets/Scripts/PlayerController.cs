@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerVelocity;
     private Rigidbody MyRb;
 
+    public Animator animator;
+    public float x, y;
+
+
 
 
 
@@ -43,30 +47,7 @@ public class PlayerController : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
-        /*void OnCollisionEnter(Collision collision)
-        {
-            Debug.Log("colisionando");
-            if (collision.gameObject.layer == 3 && groundedPlayer)
-            {
-                Debug.Log("colisionando");
-                groundedPlayer = true;
-            }
-        }
-        void OnCollisionExit(Collision collision)
-        {
-            Debug.Log("en el aire");
-            if (collision.gameObject.layer == 3 && !groundedPlayer)
-            {
-                Debug.Log("en el aire");
-                groundedPlayer = false;
-            }
-        }*/
-
-        /*groundedPlayer = controller.isGrounded;
-         if (groundedPlayer && playerVelocity.y < 0)
-         {
-             playerVelocity.y = 0f;
-         }*/
+  
         Vector3 floor = transform.TransformDirection(Vector3.down);
         if (Physics.Raycast(transform.position, floor, 1.15f))
         {
@@ -95,15 +76,16 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
+        x = Input.GetAxis("Horizontal");
+        y = Input.GetAxis("Horizontal");
+
+        animator.SetFloat("VelX", x);
+        animator.SetFloat("VelY", y);
 
 
-        //TocaElPiso = Physics2D.OverlapCircle(Cheker.position, RadioDeCheker, Piso);
-        //PARA SALTAR
 
-        /* if (Input.GetKeyDown(KeyCode.Space) )
-             {
-             MyRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-             }*/
+
+
     }
 
 
