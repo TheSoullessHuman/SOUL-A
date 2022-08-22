@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             Debug.Log("Saltando");
+
             //MyRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
         else
@@ -77,10 +78,11 @@ public class PlayerController : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
 
         x = Input.GetAxis("Horizontal");
-        y = Input.GetAxis("Horizontal");
+        y = Input.GetAxis("Vertical");
 
         animator.SetFloat("VelX", x);
         animator.SetFloat("VelY", y);
+       
 
 
 
