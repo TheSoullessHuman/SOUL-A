@@ -1,17 +1,9 @@
 fileFormatVersion: 2
-guid: 345c239c5f29f684e9c622f6a802c280
+guid: 466df52363a5cf947a041ac9dff6496a
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable:
-  - first:
-      74: -203655887218126122
-    second: mixamo.com
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: N00_000_00_Body_00_SKIN (Instance)
-    second: {fileID: 2100000, guid: 6315351a771acca4b810d26b1dc18f79, type: 2}
+  internalIDToNameTable: []
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
