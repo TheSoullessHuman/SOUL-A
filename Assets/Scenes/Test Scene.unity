@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.05389055, g: 0.03718067, b: 0.0703162, a: 1}
+  m_IndirectSpecularColor: {r: 0.12144313, g: 0.10009424, b: 0.16500667, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1752,6 +1752,7 @@ GameObject:
   - component: {fileID: 1317670679}
   - component: {fileID: 1317670683}
   - component: {fileID: 1317670684}
+  - component: {fileID: 1317670685}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1867,6 +1868,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubo: {fileID: 1317670677}
   mano: {fileID: 41780888}
+--- !u!114 &1317670685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317670677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f22348f5f8ac4247aff0ee7f5730f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: 0
+  maxitems: 5
+  textointerface: {fileID: 0}
 --- !u!1 &1563169470
 GameObject:
   m_ObjectHideFlags: 3
@@ -2415,6 +2431,7 @@ GameObject:
   - component: {fileID: 1796003904}
   - component: {fileID: 1796003903}
   - component: {fileID: 1796003906}
+  - component: {fileID: 1796003907}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2511,6 +2528,18 @@ MonoBehaviour:
   lento: 0
   Cooldown: 2.5
   NextUse: 0
+--- !u!114 &1796003907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796003899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70efee04e98b1046991afe727cd5bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1910143155 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 316f990eb1b5591489dc5a688e9cd223, type: 3}
