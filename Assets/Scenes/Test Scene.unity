@@ -538,14 +538,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7823293702887809713, guid: 316f990eb1b5591489dc5a688e9cd223, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c59faa3e261d88946a6a219729fcc4ad, type: 2}
     - target: {fileID: 919132149155446097, guid: 316f990eb1b5591489dc5a688e9cd223, type: 3}
       propertyPath: m_Name
       value: KaylaFinal@Slow Run
       objectReference: {fileID: 0}
+    - target: {fileID: 1630794972795428178, guid: 316f990eb1b5591489dc5a688e9cd223, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2c20b621875d7644b8c38354bb62bff4, type: 2}
+    - target: {fileID: 5342037263363099379, guid: 316f990eb1b5591489dc5a688e9cd223, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 66c9d26c548c6284d84d48e51c15c777, type: 2}
     - target: {fileID: 5866666021909216657, guid: 316f990eb1b5591489dc5a688e9cd223, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a591dd924658b8c4a8fdb48b32960822, type: 2}
+    - target: {fileID: 6729435826925618241, guid: 316f990eb1b5591489dc5a688e9cd223, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 285dabb3a5670234aa2714211c3a3b64, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 316f990eb1b5591489dc5a688e9cd223, type: 3}
 --- !u!1 &357678465
@@ -766,7 +782,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1213872, y: 1}
+    m_SensorSize: {x: 1.7552986, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1532,7 +1548,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1213872, y: 1}
+    m_SensorSize: {x: 1.7552986, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1610,7 +1626,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1213872, y: 1}
+    m_SensorSize: {x: 1.7552986, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1936,7 +1952,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1213872, y: 1}
+    m_SensorSize: {x: 1.7552986, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2540,6 +2556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70efee04e98b1046991afe727cd5bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocidad: 0
 --- !u!95 &1910143155 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 316f990eb1b5591489dc5a688e9cd223, type: 3}
