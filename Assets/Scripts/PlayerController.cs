@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
-    private bool groundedPlayer = false;
+    public bool groundedPlayer = false;
     public float jumpHeight;
     public float jumpForce = 5;
     private float gravityValue = -9.81f;
@@ -49,11 +49,12 @@ public class PlayerController : MonoBehaviour
         }
   
         Vector3 floor = transform.TransformDirection(Vector3.down);
-        if (Physics.Raycast(transform.position, floor, 1.15f))
+        if (Physics.Raycast(transform.position, floor, 1.13f))
         {
             groundedPlayer = true;
+            animator.SetBool("Saltar", false);
             print("contacto con el suelo");
-
+            
         }
         else
         {
@@ -66,12 +67,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && groundedPlayer == true)
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            animator.SetBool("Saltar", true);
             Debug.Log("Saltando");
 
             //MyRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
         else
         {
+            
             Debug.Log("no salto");
         }
         playerVelocity.y += gravityValue * Time.deltaTime;
