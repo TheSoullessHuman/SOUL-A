@@ -36,4 +36,9 @@ public class GameManager : MonoBehaviour
             Pause = false;
         }
     }
+    public void inicio()
+    {
+        SceneManager.LoadScene(1);
+
+    }
 }
