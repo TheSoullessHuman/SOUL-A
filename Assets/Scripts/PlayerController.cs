@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     public float speed;
     public Transform cam;
+    public float puntosdevida;
+    public float vidaMax;
+
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
@@ -90,6 +93,10 @@ public class PlayerController : MonoBehaviour
 
 
 
+
+    }
+    public void RecibirDaño()
+    {
 
     }
 

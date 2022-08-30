@@ -240,19 +240,18 @@ public class Enemy1 : MonoBehaviour
             }
             if (Vector3.Distance(transform.position, player.position) > viewRadius)
             {
-                /*
-                 *  If the player is further than the view radius, then the enemy will no longer keep the player's current position.
-                 *  Or the enemy is a safe zone, the enemy will no chase
-                 * */
+               
                 m_playerInRange = false;                //  Change the sate of chasing
             }
             if (m_playerInRange)
             {
-                /*
-                 *  If the enemy no longer sees the player, then the enemy will go to the last position that has been registered
-                 * */
-                m_PlayerPosition = player.transform.position;       //  Save the player's current position if the player is in range of vision
+               
+                m_PlayerPosition = player.transform.position;      
             }
         }
+    }
+    private void attack()
+    {
+
     }
 }
