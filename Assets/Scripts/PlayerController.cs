@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Transform cam;
     public float puntosdevida;
     public float vidaMax;
+    public Image Vida;
 
 
     public float turnSmoothTime = 0.1f;
@@ -88,17 +89,42 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("VelX", x);
         animator.SetFloat("VelY", y);
-       
 
 
+        medidor();
 
 
 
     }
-    public void RecibirDaño()
+    public void medidor()
     {
-
+        Vida.fillAmount = puntosdevida / vidaMax;
+        if (puntosdevida >= 25f)
+        {
+            Vida.color = Color.green;
+        }
+        else if (puntosdevida <= 25f)
+        {
+            Vida.color = Color.red;
+        }
+    
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            puntosdevida = puntosdevida - 10 * Time.deltaTime;
+            
+        }
+
+        if (other.tag == "Curación")
+        {
+            puntosdevida = puntosdevida + 10 * Time.deltaTime;
+
+        }
+    }
+
 
 
 }
