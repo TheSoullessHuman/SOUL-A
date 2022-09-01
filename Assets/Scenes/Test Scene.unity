@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12147362, g: 0.100061394, b: 0.16500562, a: 1}
+  m_IndirectSpecularColor: {r: 0.121452354, g: 0.10009343, b: 0.16499558, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -850,6 +850,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy1 Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1857431068231724040, guid: d7f8c45ee97b5884cb930e972d45e2f8, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7f8c45ee97b5884cb930e972d45e2f8, type: 3}
 --- !u!1 &200101744
@@ -1122,7 +1126,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.3525047, y: 1}
+    m_SensorSize: {x: 2.1213872, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2188,7 +2192,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.3525047, y: 1}
+    m_SensorSize: {x: 2.1213872, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2266,7 +2270,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.3525047, y: 1}
+    m_SensorSize: {x: 2.1213872, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2303,7 +2307,7 @@ GameObject:
   - component: {fileID: 1077507338}
   m_Layer: 0
   m_Name: Hit
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2316,8 +2320,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077507336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.85}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.70725}
+  m_LocalScale: {x: 1, y: 1, z: 1.9418}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1717291564}
@@ -2331,7 +2335,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077507336}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.0510938, y: 2.4981933, z: 1.3031387}
@@ -2832,7 +2836,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.3525047, y: 1}
+    m_SensorSize: {x: 2.1213872, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3112,7 +3116,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -3164,6 +3168,7 @@ MonoBehaviour:
   timeToRotate: 1
   speedWalk: 2
   speedRun: 5
+  speedattack: 0.5
   viewRadius: 15
   viewAngle: 90
   playerMask:
@@ -3181,7 +3186,7 @@ MonoBehaviour:
   - {fileID: 479424639}
   - {fileID: 1249225983}
   - {fileID: 818361222}
-  Hit: {fileID: 0}
+  hit: {fileID: 1077507338}
   attack: 0
 --- !u!1 &1729200918
 GameObject:

@@ -8,7 +8,8 @@ public class Enemy1 : MonoBehaviour
     public float startWaitTime = 4;                 
     public float timeToRotate = 2;                  
     public float speedWalk;                     
-    public float speedRun;                      
+    public float speedRun;
+    public float speedattack;
 
     public float viewRadius = 15;                   //  Radio de la visión del enemigo
     public float viewAngle = 90;                    //  Angulo de la visión del enemigo
@@ -21,7 +22,7 @@ public class Enemy1 : MonoBehaviour
 
     public Transform[] waypoints;                   //  para los waypoints
     int m_CurrentWaypointIndex;                     //  donde el enemigo se dirige 
-    public Transform hit;
+    public Collider hit;
     public bool attack;
     
 
@@ -49,15 +50,15 @@ public class Enemy1 : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
 
         navMeshAgent.isStopped = false;
-        navMeshAgent.speed = speedWalk;             //  Set the navemesh speed with the normal speed of the enemy
-        navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);    //  Set the destination to the first waypoint
+        navMeshAgent.speed = speedWalk;             
+        navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);    
     }
 
     private void Update()
     {
-        EnviromentView();                       //  Check whether or not the player is in the enemy's field of vision
+        EnviromentView();                       
 
-        if (!m_IsPatrol)
+        if (!m_IsPatrol&&attack==false)
         {
             Chasing();
         }
@@ -87,13 +88,13 @@ public class Enemy1 : MonoBehaviour
         if (!m_CaughtPlayer)
         {
             Move(speedRun);
-            navMeshAgent.SetDestination(m_PlayerPosition);          //  set the destination of the enemy to the player location
+            navMeshAgent.SetDestination(m_PlayerPosition);          
         }
-        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)    //  Control if the enemy arrive to the player location
+        if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)    
         {
             if (m_WaitTime <= 0 && !m_CaughtPlayer && Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 6f)
             {
-                //  Check if the enemy is not near to the player, returns to patrol after the wait time delay
+                
                 m_IsPatrol = true;
                 m_PlayerNear = false;
                 Move(speedWalk);
@@ -104,7 +105,7 @@ public class Enemy1 : MonoBehaviour
             else
             {
                 if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 2.5f)
-                    //  Wait if the current position is not the player position
+                    
                     Stop();
                 m_WaitTime -= Time.deltaTime;
             }
@@ -115,7 +116,7 @@ public class Enemy1 : MonoBehaviour
     {
         if (m_PlayerNear)
         {
-            //  Check if the enemy detect near the player, so the enemy will move to that position
+            
             if (m_TimeToRotate <= 0)
             {
                 Move(speedWalk);
@@ -123,19 +124,19 @@ public class Enemy1 : MonoBehaviour
             }
             else
             {
-                //  The enemy wait for a moment and then go to the last player position
+                
                 Stop();
                 m_TimeToRotate -= Time.deltaTime;
             }
         }
         else
         {
-            m_PlayerNear = false;           //  The player is no near when the enemy is platroling
+            m_PlayerNear = false;           
             playerLastPosition = Vector3.zero;
-            navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);    //  Set the enemy destination to the next waypoint
+            navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);   
             if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
             {
-                //  If the enemy arrives to the waypoint position then wait for a moment and go to the next
+                
                 if (m_WaitTime <= 0)
                 {
                     NextPoint();
@@ -257,19 +258,30 @@ public class Enemy1 : MonoBehaviour
     {
 
     }
-    private void  OnTriggerEnter(Collider hit)
+    private void  OnTriggerEnter(Collider other)
     {
-        if (hit.tag == "Player")
+        if (other.tag == "Player")
         {
             attack = true;
+            animator.SetBool("attack", true);
+            navMeshAgent.isStopped = true;
+            Move(speedattack);
+
+
         }
     }
 
-    private void OnTriggerExit(Collider hit)
+    private void OnTriggerExit(Collider other)
     {
-        if (hit.tag == "Player")
+        if (other.tag == "Player")
         {
             attack = false;
+            animator.SetBool("attack", false);
+            navMeshAgent.isStopped = false;
+            Move(speedRun);
+
         }
     }
+    
+
 }
