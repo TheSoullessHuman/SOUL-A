@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float puntosdevida;
     public float vidaMax;
     public Image Vida;
+    
 
 
     public float turnSmoothTime = 0.1f;
@@ -114,14 +115,18 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            puntosdevida = puntosdevida - 10 * Time.deltaTime;
-            
+            if(puntosdevida > 0)
+            {
+                puntosdevida = puntosdevida - 10 * Time.deltaTime;
+            }  
         }
 
         if (other.tag == "Curación")
         {
-            puntosdevida = puntosdevida + 10 * Time.deltaTime;
-
+            if (puntosdevida < vidaMax)
+            {
+                puntosdevida = puntosdevida + 10 * Time.deltaTime;
+            }
         }
     }
 
