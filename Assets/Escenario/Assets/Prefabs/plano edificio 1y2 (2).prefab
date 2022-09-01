@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3606012990138182709}
   - component: {fileID: 3606012990138182706}
   - component: {fileID: 3606012990138182707}
+  - component: {fileID: 500079823066911848}
   m_Layer: 0
   m_Name: plano edificio 1y2 (2)
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &500079823066911848
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3606012990138182704}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1064495058475589938, guid: d9a19030a4c986e428cfd6085d172e0b, type: 3}

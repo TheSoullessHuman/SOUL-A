@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 707526506537036835}
   - component: {fileID: 6669462074032244910}
   - component: {fileID: 7050469127401167918}
+  - component: {fileID: 7955796966379114369}
   m_Layer: 0
   m_Name: arbustos 1 (1)
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7955796966379114369
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4318259979100967014}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2377790236302481396, guid: d9a19030a4c986e428cfd6085d172e0b, type: 3}

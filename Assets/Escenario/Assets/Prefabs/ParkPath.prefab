@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8214462402582339895}
   - component: {fileID: 5066683296825994898}
   - component: {fileID: 7040409162339523160}
+  - component: {fileID: 4258027859865312967}
   m_Layer: 0
   m_Name: ParkPath
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4258027859865312967
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8841818021095324557}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4034527799911250384, guid: eb4dcaddfca7a8e469875bb2e4c26f0f, type: 3}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2923550679559750588}
   - component: {fileID: 2251045889018547225}
   - component: {fileID: 4096486784850802899}
+  - component: {fileID: 8772687836956292287}
   m_Layer: 0
   m_Name: edificio mini
   m_TagString: Untagged
@@ -84,3 +85,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8772687836956292287
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2583194228384504070}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4493585093827132993, guid: beca3c01c8a605940af64bca7c63b0cb, type: 3}
