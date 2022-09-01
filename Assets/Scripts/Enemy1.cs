@@ -21,6 +21,9 @@ public class Enemy1 : MonoBehaviour
 
     public Transform[] waypoints;                   //  para los waypoints
     int m_CurrentWaypointIndex;                     //  donde el enemigo se dirige 
+    public Transform hit;
+    public bool attack;
+    
 
     Vector3 playerLastPosition = Vector3.zero;      
     Vector3 m_PlayerPosition;                       
@@ -78,8 +81,8 @@ public class Enemy1 : MonoBehaviour
     private void Chasing()
     {
         //  The enemy is chasing the player
-        m_PlayerNear = false;                       //  Set false that hte player is near beacause the enemy already sees the player
-        playerLastPosition = Vector3.zero;          //  Reset the player near position
+        m_PlayerNear = false;                       
+        playerLastPosition = Vector3.zero;          
 
         if (!m_CaughtPlayer)
         {
@@ -250,8 +253,23 @@ public class Enemy1 : MonoBehaviour
             }
         }
     }
-    private void attack()
+    private void attacking()
     {
 
+    }
+    private void  OnTriggerEnter(Collider hit)
+    {
+        if (hit.tag == "Player")
+        {
+            attack = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider hit)
+    {
+        if (hit.tag == "Player")
+        {
+            attack = false;
+        }
     }
 }
