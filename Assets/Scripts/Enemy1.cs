@@ -258,9 +258,9 @@ public class Enemy1 : MonoBehaviour
     {
 
     }
-    private void  OnTriggerEnter(Collider other)
+    private void  OnTriggerEnter(Collider hit)
     {
-        if (other.tag == "Player")
+        if (hit.tag == "Player")
         {
             attack = true;
             animator.SetBool("attack", true);
@@ -271,9 +271,9 @@ public class Enemy1 : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider hit)
     {
-        if (other.tag == "Player")
+        if (hit.tag == "Player")
         {
             attack = false;
             animator.SetBool("attack", false);
