@@ -24,7 +24,11 @@ public class Enemy1 : MonoBehaviour
     int m_CurrentWaypointIndex;                     //  donde el enemigo se dirige 
     public Collider hit;
     public bool attack;
-    
+
+    [SerializeField] private AudioSource HitSF;
+    [SerializeField] private AudioSource HitFailed;
+
+
 
     Vector3 playerLastPosition = Vector3.zero;      
     Vector3 m_PlayerPosition;                       
@@ -262,11 +266,14 @@ public class Enemy1 : MonoBehaviour
     {
         if (hit.tag == "Player")
         {
+            
             attack = true;
             animator.SetBool("attack", true);
             navMeshAgent.isStopped = true;
             Move(speedattack);
-
+            HitSF.Play();
+            //HITS.PlayOneShot(HIT1);
+           
 
         }
     }
@@ -279,6 +286,7 @@ public class Enemy1 : MonoBehaviour
             animator.SetBool("attack", false);
             navMeshAgent.isStopped = false;
             Move(speedRun);
+            HitSF.Stop();
 
         }
     }
