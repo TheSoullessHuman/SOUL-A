@@ -10,6 +10,7 @@ public class TiempoBala : MonoBehaviour
     public float NextUse;
     public float speedy;
     public Animator animator;
+    public float gravity; 
     
 
     // Start is called before the first frame update
@@ -37,7 +38,7 @@ public class TiempoBala : MonoBehaviour
 
                 speedy = 10;
                 animator.SetFloat("Multiply", 2);
-                
+                gravity = -19.62f;
 
 
                 Debug.Log("Lento");
@@ -51,7 +52,7 @@ public class TiempoBala : MonoBehaviour
 
                 speedy = 5;
                 animator.SetFloat("Multiply", 1);
-                
+                gravity = -9.81f;
 
                 desactivar();
                 Debug.Log("No Lento");
