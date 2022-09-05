@@ -8601,6 +8601,7 @@ MonoBehaviour:
   lento: 0
   Cooldown: 2.5
   NextUse: 0
+  PY: {fileID: 0}
 --- !u!114 &1796003907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10341,6 +10342,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9183231955549671582, guid: 135cb0fdd3870fd45896571d0e20c543,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9183231955989746816, guid: 135cb0fdd3870fd45896571d0e20c543,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

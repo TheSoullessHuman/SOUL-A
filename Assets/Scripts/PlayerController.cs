@@ -91,6 +91,10 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("VelX", x);
         animator.SetFloat("VelY", y);
 
+        TiempoBala velocidad = GetComponent<TiempoBala>();
+        speed = velocidad.speedy;
+
+        
 
         medidor();
 
@@ -131,9 +135,39 @@ public class PlayerController : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        
+        if (other.tag == "Enemy")
+        {
+            if (puntosdevida > 0)
+            {
+                puntosdevida = puntosdevida - 10 * Time.deltaTime;
+            }
+        }
+
+        if (other.tag == "Curación")
+        {
+            if (puntosdevida < vidaMax)
+            {
+                puntosdevida = puntosdevida + 10 * Time.deltaTime;
+            }
+        }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag ("Enemy"))
+        {
+            if (puntosdevida > 0)
+            {
+                puntosdevida = puntosdevida - 10 * Time.deltaTime;
+            }
+        }
 
-
+        if (collision.collider.CompareTag ("Curación"))
+        {
+            if (puntosdevida < vidaMax)
+            {
+                puntosdevida = puntosdevida + 10 * Time.deltaTime;
+            }
+        }
+    }
 }

@@ -8,18 +8,22 @@ public class TiempoBala : MonoBehaviour
     public bool lento;
     public float Cooldown;
     public float NextUse;
+    public float speedy;
+    public Animator animator;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         lento = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         Activar();
-
+        
     }
 
     void Activar()
@@ -31,6 +35,11 @@ public class TiempoBala : MonoBehaviour
                 Panel.SetActive(true);
                 Time.timeScale = 0.5f;
 
+                speedy = 10;
+                animator.SetFloat("Multiply", 2);
+                
+
+
                 Debug.Log("Lento");
                 Invoke("Casteo", 2.5f);
             }
@@ -39,6 +48,10 @@ public class TiempoBala : MonoBehaviour
             {
                 Panel.SetActive(false);
                 Time.timeScale = 1f;
+
+                speedy = 5;
+                animator.SetFloat("Multiply", 1);
+                
 
                 desactivar();
                 Debug.Log("No Lento");
