@@ -19,6 +19,10 @@ public class Enemy1 : MonoBehaviour
     public int edgeIterations = 4;                  //  Numero de iteraciónes 
     public float edgeDistance = 0.5f;               
     public Animator animator;
+    public float puntosdevida;
+    private float getbunktime;
+    private Rigidbody MyRb;
+    public bool Dead=false;
 
     public Transform[] waypoints;                   //  para los waypoints
     int m_CurrentWaypointIndex;                     //  donde el enemigo se dirige 
@@ -48,7 +52,8 @@ public class Enemy1 : MonoBehaviour
         m_PlayerNear = false;
         m_WaitTime = startWaitTime;                
         m_TimeToRotate = timeToRotate;
-        
+        MyRb = GetComponent<Rigidbody>();
+
 
         m_CurrentWaypointIndex = 0;                 
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -60,27 +65,36 @@ public class Enemy1 : MonoBehaviour
 
     private void Update()
     {
-        EnviromentView();                       
+        if(Dead==false)
+        EnviromentView();
 
-        if (!m_IsPatrol&&attack==false)
+        if (!m_IsPatrol && attack == false && Dead == false)
         {
             Chasing();
         }
-        else
+        else if (Dead == false)
         {
             Patroling();
         }
 
-        if (navMeshAgent.speed == speedWalk)
+        if (Dead == true)
+        {
+            animator.SetBool("dead", true);
+            navMeshAgent.isStopped = true;
+
+        }
+
+        if (navMeshAgent.speed == speedWalk && Dead==false)
         {
             animator.SetBool("walk", true);
             animator.SetBool("run", false);
         }
-        else if (navMeshAgent.speed == speedRun)
+        else if (navMeshAgent.speed == speedRun && Dead==false)
         {
             animator.SetBool("run", true);
             animator.SetBool("walk", false);
         }
+       
     }
 
     private void Chasing()
@@ -274,6 +288,18 @@ public class Enemy1 : MonoBehaviour
             HitSF.Play();
 
         }
+        if (hit.tag == "Sword"&&(getbunktime+1.0f)<Time.time)
+        {
+
+            puntosdevida = puntosdevida - 10;
+            getbunktime = Time.time;
+            if (puntosdevida <= 0)
+            {
+                Dead = true;
+            }
+        }
+        
+        
     }
 
     private void OnTriggerExit(Collider hit)
@@ -289,5 +315,6 @@ public class Enemy1 : MonoBehaviour
         }
     }
     
+
 
 }

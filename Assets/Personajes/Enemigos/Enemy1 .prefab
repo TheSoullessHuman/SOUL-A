@@ -2184,6 +2184,7 @@ MonoBehaviour:
   edgeIterations: 4
   edgeDistance: 2
   animator: {fileID: 1218038233747862264}
+  puntosdevida: 50
   waypoints:
   - {fileID: 0}
   - {fileID: 0}

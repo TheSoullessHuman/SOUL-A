@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float puntosdevida;
     public float vidaMax;
     public Image Vida;
+    public GameManager gameManager;
     
 
 
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private float gravityValue = -9.81f;
     private Vector3 playerVelocity;
     private Rigidbody MyRb;
+    public bool DeadPlayer;
 
     public Animator animator;
     public float x, y;
@@ -39,11 +41,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if (direction.magnitude >= 0.1f)
+        if (direction.magnitude >= 0.1f && DeadPlayer==false)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -52,24 +55,32 @@ public class PlayerController : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
+
+        if (puntosdevida <= 0)
+        {
+            gameManager.Gameover();
+            DeadPlayer = true;
+            animator.SetBool("Dead", true);
+
+        }
   
         Vector3 floor = transform.TransformDirection(Vector3.down);
         if (Physics.Raycast(transform.position, floor, 1.13f))
         {
             groundedPlayer = true;
             animator.SetBool("Saltar", false);
-            print("contacto con el suelo");
+            
             
         }
         else
         {
             groundedPlayer = false;
-            print("no contacto con el suelo");
+            
         }
 
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && groundedPlayer == true)
+        if (Input.GetKeyDown(KeyCode.Space) && groundedPlayer == true && DeadPlayer==false)
         {
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             animator.SetBool("Saltar", true);
@@ -80,11 +91,12 @@ public class PlayerController : MonoBehaviour
         else
         {
             
-            Debug.Log("no salto");
+            
         }
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
+        
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
 

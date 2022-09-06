@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject Pausa;
+    public GameObject GameOverScreen;
     public bool Pause;
+    public static GameManager gameOverManager;
 
     // Start is called before the first frame update
     void Start()
@@ -49,4 +51,22 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(1);
 
     }
+    public void Gameover()
+    {
+        StartCoroutine(MyCoroutine());
+        GameOverScreen.SetActive(true);
+        Time.timeScale= 0.5f;
+        
+    }
+    public void salir()
+    {
+        Application.Quit();
+    }
+    IEnumerator MyCoroutine()
+    {
+        yield return new WaitForSeconds(1.3f);
+        Time.timeScale = 0f;
+
+    }
+
 }
