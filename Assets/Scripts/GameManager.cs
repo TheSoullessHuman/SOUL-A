@@ -42,18 +42,21 @@ public class GameManager : MonoBehaviour
     public void reanudar()
     {
         Pausa.SetActive(false);
-        Time.timeScale = 1f;
+        Time.timeScale = 1;
         Pause = false;
     }
 
     public void inicio()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1;
+        GameOverScreen.SetActive(false);
+        
 
     }
     public void Gameover()
     {
-        StartCoroutine(MyCoroutine());
+        //StartCoroutine(MyCoroutine());
         GameOverScreen.SetActive(true);
         Time.timeScale= 0.5f;
         
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour
     public void salir()
     {
         Application.Quit();
+        Debug.Log("quiting game");
     }
     IEnumerator MyCoroutine()
     {
