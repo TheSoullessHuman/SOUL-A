@@ -272,8 +272,6 @@ public class Enemy1 : MonoBehaviour
             navMeshAgent.isStopped = true;
             Move(speedattack);
             HitSF.Play();
-            //HITS.PlayOneShot(HIT1);
-           
 
         }
     }

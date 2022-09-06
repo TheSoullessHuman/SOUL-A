@@ -94,8 +94,8 @@ public class PlayerController : MonoBehaviour
         TiempoBala velocidad = GetComponent<TiempoBala>();
         speed = velocidad.speedy;
 
-        TiempoBala gravity = GetComponent<TiempoBala>();
-        gravityValue = gravity.gravity;
+       // TiempoBala gravity = GetComponent<TiempoBala>();
+        // gravityValue = gravity.gravity;
 
 
         medidor();
